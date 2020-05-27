@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1></br></br></h1>
+    {% if perms.catalog.can_mark_returned %}
+        <h1>All books on loan</h1>
+
+        {% if bookinstance_list %}
+            <ul>
+                {% for bookinst in bookinstance_list %}
+                    <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
+                        <a href="{% url 'book-detail' bookinst.book.pk %}">{{ bookinst.book.title }}</a> 
+                        ({{ bookinst.due_back }})
+                        <a href="{% url 'renew-book-librarian' bookinst.pk %}">renew</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no books borrowed.</p>
+        {% endif %}
+    {% else %}
+        <h1>You are not permitted to view this page. Only users with staff permissions can view all books on loan</h1>
+    {% endif %}
+{% endblock %}

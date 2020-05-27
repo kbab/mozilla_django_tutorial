@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title="Upload file">
+</head>
+<body>
+    <form method='post' action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="upload_file">Select file</label>
+        <input type="file" name="upload_file" id="upload_file">
+        <input type="submit" value="upload" name="submit">
+    </form>
+</body>
+</html>
