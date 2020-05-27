@@ -126,8 +126,3 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 
 # Email settings
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_HOST_USER='jsmith@cvml.org.ng'
-EMAIL_HOST_PASSWORD='jsmithpwd'
-EMAIL_USE_TLS=True
